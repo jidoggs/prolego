@@ -1,0 +1,72 @@
+.page__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1.5rem;
+  &--headline {
+    @include boldCopy1Bold;
+  }
+  &--subheadline {
+    @include boldCopy4Regular;
+  }
+}
+.authLabel {
+  display: none;
+}
+
+.authInput {
+  border: 1px solid var(--colorNeutralBlack);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  width: 100%;
+  background: var(--colorNeutralWhite);
+
+  &__icon {
+    cursor: pointer;
+    position: absolute;
+    inset: 14.92px 1.25rem 14.92px auto;
+  }
+}
+
+.loginForm {
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  width: 21.875rem;
+
+  & > .inputWrapper {
+    position: relative;
+    &:first-child {
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  .btn,
+  .inputWrapper {
+    border-radius: 0.75rem;
+  }
+  .loginActions {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
+  }
+
+  .loginCTA {
+    margin-top: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include boldCopy5Regular;
+
+    &__trustDevice {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      column-gap: 0.75rem;
+    }
+    &__forgotPassword {
+      // display: block;
+      color: var(--colorNeutralGrey2);
+    }
+  }
+}

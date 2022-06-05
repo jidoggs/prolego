@@ -1,0 +1,89 @@
+@mixin headerBold {
+  //styleName: Header-Bold;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 3.125rem;
+}
+
+@mixin headerRegular {
+  //styleName: Header-Regular;
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 3.125rem;
+}
+
+@mixin subHeaderBold {
+  //styleName: Sub-header - Bold;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.5rem;
+}
+
+@mixin subHeaderRegular {
+  //styleName: Sub-header - Regular;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 2.5rem;
+}
+
+@mixin boldCopy1Bold {
+  //styleName: Body Copy 1 - Bold;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.885rem;
+}
+@mixin boldCopy1Regular {
+  //styleName: Body Copy 1 - Regular;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.885rem;
+}
+
+@mixin boldCopy2Bold {
+  //styleName: Body Copy 2 - Bold;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 25px;
+}
+@mixin boldCopy2Regular {
+  //styleName: Body Copy 2 - Regular;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 25px;
+}
+@mixin boldCopy3Bold {
+  //styleName: Body Copy 3 - Bold;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 23px;
+}
+@mixin boldCopy3Regular {
+  //styleName: Body Copy 3 - Regular;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 23px;
+}
+@mixin boldCopy4Bold {
+  //styleName: Body Copy 4 - Bold;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+}
+@mixin boldCopy4Regular {
+  //styleName: Body Copy 4 - Regular;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+}
+@mixin boldCopy5Bold {
+  //styleName: Body Copy 5 - Bold;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 15px;
+}
+@mixin boldCopy5Regular {
+  //styleName: Body Copy 5 - Regular;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 15px;
+}

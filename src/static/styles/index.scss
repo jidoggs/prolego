@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap');
+@import "./partials/index.scss";
+@import "./components/index.scss";
+@import "./pages/index.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Mulish', sans-serif;
+  text-decoration: none;
+  color: inherit;
+  list-style: none;
+  // background-color: pink;
+}

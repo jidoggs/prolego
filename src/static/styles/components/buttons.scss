@@ -1,0 +1,82 @@
+.btn {
+  
+
+  &,
+  &Outline {
+    padding: 1.25rem;
+    border-radius: 1.25rem;
+    @include boldCopy4Regular;
+    // width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  background-color: var(--colorBlueMain);
+  color: var(--colorNeutralWhite);
+  border: 1px solid transparent;
+
+  path {
+    fill: var(--colorNeutralWhite);
+  }
+
+  &:not(:disabled) {
+    &:hover,
+    &:active {
+      background-color: var(--colorBlue1);
+    }
+    &:active {
+      border: 1px solid #00000040;
+      box-shadow: 5px 5px 20px 0px #00000040;
+      transition: border 0.8s ease;
+    }
+  }
+
+  &:disabled {
+    background-color: var(--colorNeutralGrey);
+  }
+
+  &Outline {
+    border: 1px solid var(--colorBlue1);
+    background-color: var(--colorNeutralWhite);
+    color: var(--colorNeutralBlack);
+
+    &:not(:disabled) {
+      &:active,
+      &:hover {
+        box-shadow: 5px 5px 15px 0px #00000040;
+      }
+      &:active {
+        border-color: var(--colorBlueMain);
+        background-color: var(--colorBlueMain);
+        color: var(--colorNeutralWhite);
+
+        path {
+          fill: var(--colorNeutralWhite);
+        }
+      }
+    }
+
+    &:disabled {
+      border-color: var(--colorNeutralGrey2);
+      color: var(--colorNeutralGrey2);
+
+      path {
+        fill: var(--colorNeutralGrey2);
+      }
+    }
+  }
+  &__left {
+    flex-direction: row-reverse;
+  }
+
+  &__left,
+  &__right {
+    justify-content: space-between;
+  }
+}
