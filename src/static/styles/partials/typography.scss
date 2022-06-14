@@ -43,25 +43,25 @@
   //styleName: Body Copy 2 - Bold;
   font-size: 1.25rem;
   font-weight: 700;
-  line-height: 25px;
+  line-height: 1.5625rem;
 }
 @mixin boldCopy2Regular {
   //styleName: Body Copy 2 - Regular;
   font-size: 1.25rem;
   font-weight: 400;
-  line-height: 25px;
+  line-height: 1.5625rem;
 }
 @mixin boldCopy3Bold {
   //styleName: Body Copy 3 - Bold;
   font-size: 1.125rem;
   font-weight: 700;
-  line-height: 23px;
+  line-height: 1.4375rem;
 }
 @mixin boldCopy3Regular {
   //styleName: Body Copy 3 - Regular;
   font-size: 1.125rem;
   font-weight: 400;
-  line-height: 23px;
+  line-height: 1.4375rem;
 }
 @mixin boldCopy4Bold {
   //styleName: Body Copy 4 - Bold;
@@ -79,11 +79,11 @@
   //styleName: Body Copy 5 - Bold;
   font-size: 0.75rem;
   font-weight: 700;
-  line-height: 15px;
+  line-height: 0.9375rem;
 }
 @mixin boldCopy5Regular {
   //styleName: Body Copy 5 - Regular;
   font-size: 0.75rem;
   font-weight: 400;
-  line-height: 15px;
+  line-height: 0.9375rem;
 }

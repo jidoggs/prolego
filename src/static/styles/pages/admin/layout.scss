@@ -6,8 +6,8 @@
   &__header {
     background-color: var(--colorBlue1);
     display: grid;
-    grid-template-columns: 1.5rem [logoS] 3rem [navS] 1fr[logoE] 52px;
-    grid-template-rows: 56px [logoStart]max-content[logoEnd] 1fr [navStart]max-content[navEnd] 1.77fr [logoutStart]max-content[logoutEnd] 2.27fr;
+    grid-template-columns: 1.5rem [logoS] 3rem [navS] 1fr[logoE] 3.25rem;
+    grid-template-rows: 3.5rem [logoStart]max-content[logoEnd] 1fr [navStart]max-content[navEnd] 1.77fr [logoutStart]max-content[logoutEnd] 2.27fr;
     place-content: center;
 
     &--logo {
@@ -51,12 +51,12 @@
               content: "";
               display: block;
               position: absolute;
-              width: 12px;
-              height: 40px;
+              width: .75rem;
+              height: 2.5rem;
               inset: 0 0 0 auto;
               background-color: #f5d9c3;
-              border-top-left-radius: 12px;
-              border-bottom-left-radius: 12px;
+              border-top-left-radius: .75rem;
+              border-bottom-left-radius: .75rem;
             }
           }
         }
