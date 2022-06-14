@@ -1,1 +1,88 @@
 @import "./dashboard.scss";
+
+.adminShell {
+  display: flex;
+  height: 100vh;
+  &__header {
+    background-color: var(--colorBlue1);
+    display: grid;
+    grid-template-columns: 1.5rem [logoS] 3rem [navS] 1fr[logoE] 52px;
+    grid-template-rows: 56px [logoStart]max-content[logoEnd] 1fr [navStart]max-content[navEnd] 1.77fr [logoutStart]max-content[logoutEnd] 2.27fr;
+    place-content: center;
+
+    &--logo {
+      grid-row: logoStart/logoEnd;
+      grid-column: logoS/logoE;
+      justify-self: flex-start;
+    }
+    .navigation {
+      grid-row: navStart/navEnd;
+      grid-column: navS/-1;
+
+      &List {
+        display: flex;
+        flex-direction: column;
+        row-gap: 2.25rem;
+
+        &__itm {
+          color: var(--colorBlue2);
+          @include boldCopy3Regular;
+          path {
+            fill: var(--colorBlue2);
+          }
+
+          &,
+          &-active {
+            display: flex;
+            align-items: center;
+            column-gap: 1.25rem;
+            padding: 0.5rem 0;
+          }
+
+          &-active {
+            color: var(--colorBlue4);
+            position: relative;
+            @include boldCopy3Bold;
+            path {
+              fill: var(--colorBlue4);
+            }
+
+            &::before {
+              content: "";
+              display: block;
+              position: absolute;
+              width: 12px;
+              height: 40px;
+              inset: 0 0 0 auto;
+              background-color: #f5d9c3;
+              border-top-left-radius: 12px;
+              border-bottom-left-radius: 12px;
+            }
+          }
+        }
+      }
+    }
+    &--btn {
+      grid-row: logoutStart/logoutEnd;
+      grid-column: navS/-1;
+      justify-self: flex-start;
+      border: none;
+      background-color: transparent;
+      @include boldCopy3Regular;
+      display: flex;
+      align-items: center;
+      column-gap: 1.25rem;
+      color: var(--colorBlue4);
+      padding: 0.5rem 0;
+      cursor: pointer;
+    }
+  }
+  &__body {
+    flex: 1;
+    position: relative;
+  }
+
+  canvas{
+    // width: auto;
+  }
+}

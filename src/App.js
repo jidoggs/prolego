@@ -1,5 +1,10 @@
 import { Route, Routes } from "react-router-dom";
+import AdminLayout from "./common/component/layout/AdminLayout";
 import AuthLayout from "./common/component/layout/AuthLayout";
+import Dashboard from "./modules/admin/Dashboard";
+import MyStudent from "./modules/admin/MyStudent";
+import Prediction from "./modules/admin/Prediction";
+import Setting from "./modules/admin/Setting";
 import ForgotPassword from "./modules/auth/ForgotPassword";
 import InValidRoute from "./modules/auth/InValidRoute";
 import Login from "./modules/auth/Login";
@@ -17,7 +22,16 @@ function App() {
         <Route path="/auth/password_reset" element={<ResetPassword />} />
         <Route path="/" element={<Onboarding />} />
       </Route>
-        <Route path="*" element={<InValidRoute />} />
+
+      <Route path="admin" element={<AdminLayout />}>
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="my_student" element={<MyStudent />} />
+        <Route path="attendance" element={<Setting />} />
+        <Route path="setting" element={<Setting />} />
+        <Route path="prediction" element={<Prediction />} />
+      </Route>
+
+      <Route path="*" element={<InValidRoute />} />
     </Routes>
   );
 }
