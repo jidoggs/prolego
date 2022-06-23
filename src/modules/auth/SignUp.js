@@ -2,19 +2,31 @@ import React, { useState } from "react";
 import CustomButton from "../../common/component/CustomButton/CustomButton";
 import EyesIcon from "../../common/component/customIcons/EyesIcon";
 import GoogleIcon from "../../common/component/customIcons/GoogleIcon";
-import { signup } from "./service";
-import * as Yup from 'yup'
+import { fetchUserInfo, signup } from "./service";
+import * as Yup from "yup";
 import { useFormik } from "formik";
+import { useDispatch, useSelector } from "react-redux";
+import { isloading, notloading } from "../../common/redux/reducer/loading";
+import { storeUserToken } from "../../common/service/storage";
+import { useNavigate } from "react-router-dom";
+import GoogleAuth from "../../common/component/layout/GoogleAuth";
 
 function SignUp() {
-  
   const [showPassword, setShowPassword] = useState(false);
   const [termsAgreed, setTermsAgreed] = useState(false);
+  const [allowgoogleauth, setAllowgoogleauth] = useState(false);
+  const loader = useSelector((state) => state.loadingState.apploadingstate);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  
+  const allowgoogle = () => { 
+    setAllowgoogleauth(!allowgoogleauth)
+    dispatch(isloading());
+   }
+
   const signupSchema = Yup.object().shape({
-    firstName: Yup.string().required("Firstname is Required"),
-    lastName: Yup.string().required("Lastname is Required"),
+    firstname: Yup.string().required("firstname is Required"),
+    lastname: Yup.string().required("lastname is Required"),
     password: Yup.string()
       .min(8, "Too Short!")
       .required("Password is Required"),
@@ -23,15 +35,24 @@ function SignUp() {
 
   const formik = useFormik({
     initialValues: {
-      firstName:"",
-      lastName:"",
+      firstname: "",
+      lastname: "",
       email: "",
       password: "",
     },
     onSubmit: (values) => {
+      dispatch(isloading());
       signup(values)
-        .then((res) => console.log(res,"res"))
-        .catch((err) => console.log(err,"err"));
+        .then((res) => {
+          storeUserToken(res.token);
+          fetchUserInfo(res.data?.id);
+          dispatch(notloading());
+          navigate("/admin/dashboard");
+        })
+        .catch((err) => {
+          dispatch(notloading());
+          console.log(err, "auth");
+        });
     },
     validationSchema: signupSchema,
   });
@@ -42,45 +63,48 @@ function SignUp() {
       </div>
       <form
         autoComplete="off"
-        onSubmit={(e) => {e.preventDefault(); formik.handleSubmit()}}
+        onSubmit={(e) => {
+          e.preventDefault();
+          formik.handleSubmit();
+        }}
         className="signUpForm"
       >
         <div className="inputWrapper">
-          <label htmlFor="signUpFirstName" className="authLabel">
+          <label htmlFor="signUpfirstname" className="authLabel">
             First Name
           </label>
           <input
             autoComplete="off"
             className="authInput"
-            id="signUpFirstName"
+            id="signUpfirstname"
             type="text"
             placeholder="First Name"
-            name="firstName"
-            value={formik.values.firstName}
+            name="firstname"
+            value={formik.values.firstname}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
-          {formik.touched.firstName && formik.errors.firstName ? (
-            <p className="error">{formik.errors.firstName}</p>
+          {formik.touched.firstname && formik.errors.firstname ? (
+            <p className="error">{formik.errors.firstname}</p>
           ) : null}
         </div>
         <div className="inputWrapper">
-          <label htmlFor="signUpLastName" className="authLabel">
+          <label htmlFor="signUplastname" className="authLabel">
             Last Name
           </label>
           <input
             autoComplete="off"
             className="authInput"
-            id="signUpLastName"
+            id="signUplastname"
             type="text"
             placeholder="Last Name"
-            name="lastName"
-            value={formik.values.lastName}
+            name="lastname"
+            value={formik.values.lastname}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
-          {formik.touched.lastName && formik.errors.lastName ? (
-            <p className="error">{formik.errors.lastName}</p>
+          {formik.touched.lastname && formik.errors.lastname ? (
+            <p className="error">{formik.errors.lastname}</p>
           ) : null}
         </div>
         <div className="inputWrapper">
@@ -126,13 +150,15 @@ function SignUp() {
           ) : null}
         </div>
         <p className="formBreaker">OR</p>
+        {allowgoogleauth && <GoogleAuth />}
         <CustomButton
           icon={<GoogleIcon />}
+          disabled={loader}
           iconOrientation="left"
           variant="OUTLINE"
           actionName="Sign up with your Google account"
           type="button"
-          onClick={() => null}
+          onClick={ allowgoogle}
         />
         <div className="signUpTerms">
           <label htmlFor="terms" className="signUpTerms__label">
@@ -148,7 +174,7 @@ function SignUp() {
           />
         </div>
         <CustomButton
-          disabled={!termsAgreed}
+          disabled={!termsAgreed || loader}
           actionName="Create Account"
           type="submit"
           onClick={() => null}

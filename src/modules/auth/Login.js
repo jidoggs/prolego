@@ -1,22 +1,15 @@
 import { useFormik } from "formik";
-// import second from 'react-goo'
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import CustomButton from "../../common/component/CustomButton/CustomButton";
 import EyesIcon from "../../common/component/customIcons/EyesIcon";
 import GoogleIcon from "../../common/component/customIcons/GoogleIcon";
 import * as Yup from "yup";
-import { fetchUserInfo, login, loginwithgoogle } from "./service";
-import {
-  // fetchUserDetails,
-  // storeUserDetails,
-  storeUserToken,
-} from "../../common/service/storage";
+import { fetchUserInfo, login } from "./service";
+import { storeUserToken } from "../../common/service/storage";
 import { useDispatch, useSelector } from "react-redux";
 import { isloading, notloading } from "../../common/redux/reducer/loading";
-import {  useGoogleLogin,  } from "@react-oauth/google";
 import GoogleAuth from "../../common/component/layout/GoogleAuth";
-// import GoogleLogin from "react-google-login";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -25,36 +18,12 @@ function Login() {
   const networkRequest = useSelector(
     (state) => state.loadingState.apploadingstate
   );
-
-
-
   const navigate = useNavigate();
 
-  const allowgoogle = () => { 
-    setAllowgoogleauth(!allowgoogleauth)
-   }
-
-  const googleLogin = useGoogleLogin({
-    onSuccess: (resp) => {
-      console.log(resp);
-      loginwithgoogle(resp.code)
-        .then((res) => {
-          storeUserToken(res.token);
-          fetchUserInfo(res.data?.id);
-          dispatch(notloading());
-          navigate("/admin/dashboard");
-        })
-        .catch((err) => {
-          dispatch(notloading());
-          console.log(err);
-        });
-    },
-    onError: (err) => {
-      dispatch(notloading());
-      console.log(err);
-    },
-    flow: "implicit",
-  });
+  const allowgoogle = () => {
+    setAllowgoogleauth(!allowgoogleauth);
+    dispatch(isloading())
+  };
 
   const loginSchema = Yup.object().shape({
     password: Yup.string()
@@ -90,10 +59,10 @@ function Login() {
     formik.handleSubmit();
   };
 
-  const handleLogin = () => {
-    dispatch(isloading());
-    googleLogin();
-  };
+  // const handleLogin = () => {
+  //   dispatch(isloading());
+  //   googleLogin();
+  // };
 
   return (
     <>
@@ -162,15 +131,6 @@ function Login() {
               Forgot password?
             </Link>
           </div>
-          {/* <GoogleLogin
-            onSuccess={(credentialResponse) => {
-              console.log(credentialResponse);
-            }}
-            onError={() => {
-              console.log("Login Failed");
-            }}
-            text="signin_with"
-          /> */}
           {allowgoogleauth && <GoogleAuth />}
           <CustomButton
             disabled={networkRequest}

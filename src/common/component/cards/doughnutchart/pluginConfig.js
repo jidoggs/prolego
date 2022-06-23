@@ -3,7 +3,7 @@ export const config = [
     afterDatasetsDraw: (chart, args, options) => {
       const {
         ctx,
-        chartArea: { top, bottom, height, width },
+        chartArea: { bottom, height, width },
       } = chart;
 
       ctx.save();
