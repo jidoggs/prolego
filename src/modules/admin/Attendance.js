@@ -1,8 +1,11 @@
 import React from 'react'
+import CourseAttendanceCard from '../../common/component/cards/CourseAttendanceCard'
 
 function Attendance() {
   return (
-    <div>Attendance</div>
+    <div className="adminShell__body--content">
+      <CourseAttendanceCard />
+    </div>
   )
 }
 

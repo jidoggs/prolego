@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import SplashScreenBg from '../../../common/component/customIcons/SplashScreenBg'
 
 function Splash({showSplash, hideSplashHandler}) {
 
@@ -8,7 +7,7 @@ function Splash({showSplash, hideSplashHandler}) {
       if (showSplash) {
           timeout = setTimeout(() => {
               hideSplashHandler()
-          }, 3000);
+          }, 5000);
       }
     
       return () => {
@@ -17,8 +16,8 @@ function Splash({showSplash, hideSplashHandler}) {
     }, []) //eslint-disable-line
 
   return (
-    <div className='splash'>
-        <SplashScreenBg />
+    <div  className='splash'>
+        <div className="loader"></div>
     </div>
   )
 }

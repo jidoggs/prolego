@@ -1,6 +1,6 @@
 import React, { useLayoutEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import CustomButton from "../../../common/component/CustomButton";
+import CustomButton from "../../../common/component/CustomButton/CustomButton";
 
 function Onboarding({newUserHandler,newUser}) {
   const navigate = useNavigate();

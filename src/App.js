@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import AdminLayout from "./common/component/layout/AdminLayout";
 import AuthLayout from "./common/component/layout/AuthLayout";
+import Attendance from "./modules/admin/Attendance";
 import Dashboard from "./modules/admin/Dashboard";
 import MyStudent from "./modules/admin/MyStudent";
 import Prediction from "./modules/admin/Prediction";
@@ -26,7 +27,7 @@ function App() {
       <Route path="admin" element={<AdminLayout />}>
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="my_student" element={<MyStudent />} />
-        <Route path="attendance" element={<Setting />} />
+        <Route path="attendance" element={<Attendance />} />
         <Route path="setting" element={<Setting />} />
         <Route path="prediction" element={<Prediction />} />
       </Route>

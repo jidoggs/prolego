@@ -1,13 +1,21 @@
 @import "./dashboard.scss";
+@import "./mystudent.scss";
 
 .adminShell {
   display: flex;
   height: 100vh;
+  overflow: hidden;
+  // display: grid;
+  // grid-template-columns: max-content max-content;
+  // overflow: hidden;
+  background-color: var(--colorNeutralGrey3);
   &__header {
+    // grid-column: 1/2;
     background-color: var(--colorBlue1);
     display: grid;
     grid-template-columns: 1.5rem [logoS] 3rem [navS] 1fr[logoE] 3.25rem;
-    grid-template-rows: 3.5rem [logoStart]max-content[logoEnd] 1fr [navStart]max-content[navEnd] 1.77fr [logoutStart]max-content[logoutEnd] 2.27fr;
+    // grid-template-rows: 3.5rem [logoStart]max-content[logoEnd] 1fr [navStart]max-content[navEnd] 1.77fr [logoutStart]max-content[logoutEnd] 2.27fr;
+    grid-template-rows: 3.5rem [logoStart]max-content[logoEnd] 3.5rem [navStart]max-content[navEnd] 1.77fr [logoutStart]max-content[logoutEnd] 2.27fr;
     place-content: center;
 
     &--logo {
@@ -54,7 +62,7 @@
               width: .75rem;
               height: 2.5rem;
               inset: 0 0 0 auto;
-              background-color: #f5d9c3;
+              background-color: #D74E96;
               border-top-left-radius: .75rem;
               border-bottom-left-radius: .75rem;
             }
@@ -78,8 +86,20 @@
     }
   }
   &__body {
+    grid-column: 2/3;
     flex: 1;
     position: relative;
+
+    &--header{
+      position: absolute;
+      inset: 0 0 auto 0;
+    }
+    &--content{
+      margin-top: 6rem;
+      background-color: var(--colorNeutralGrey3);
+      // height: 100vh;
+      // overflow: scroll;
+    }
   }
 
   canvas{

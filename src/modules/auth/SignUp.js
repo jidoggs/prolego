@@ -1,24 +1,40 @@
 import React, { useState } from "react";
-import CustomButton from "../../common/component/CustomButton";
+import CustomButton from "../../common/component/CustomButton/CustomButton";
 import EyesIcon from "../../common/component/customIcons/EyesIcon";
 import GoogleIcon from "../../common/component/customIcons/GoogleIcon";
+import { signup } from "./service";
+import * as Yup from 'yup'
+import { useFormik } from "formik";
 
 function SignUp() {
-  const initialState = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-  };
-  const [signUpForm, setSignUpForm] = useState(initialState);
-
+  
   const [showPassword, setShowPassword] = useState(false);
   const [termsAgreed, setTermsAgreed] = useState(false);
 
-  const onChangeHandler = (e) => {
-    const { name, value } = e.target;
-    setSignUpForm((prev) => ({ ...prev, [name]: value }));
-  };
+  
+  const signupSchema = Yup.object().shape({
+    firstName: Yup.string().required("Firstname is Required"),
+    lastName: Yup.string().required("Lastname is Required"),
+    password: Yup.string()
+      .min(8, "Too Short!")
+      .required("Password is Required"),
+    email: Yup.string().email("Invalid email").required("Email is Required"),
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      firstName:"",
+      lastName:"",
+      email: "",
+      password: "",
+    },
+    onSubmit: (values) => {
+      signup(values)
+        .then((res) => console.log(res,"res"))
+        .catch((err) => console.log(err,"err"));
+    },
+    validationSchema: signupSchema,
+  });
   return (
     <>
       <div className="page__title">
@@ -26,12 +42,12 @@ function SignUp() {
       </div>
       <form
         autoComplete="off"
-        onSubmit={(e) => e.preventDefault()}
+        onSubmit={(e) => {e.preventDefault(); formik.handleSubmit()}}
         className="signUpForm"
       >
         <div className="inputWrapper">
           <label htmlFor="signUpFirstName" className="authLabel">
-            Email
+            First Name
           </label>
           <input
             autoComplete="off"
@@ -40,13 +56,17 @@ function SignUp() {
             type="text"
             placeholder="First Name"
             name="firstName"
-            value={signUpForm.firstName}
-            onChange={onChangeHandler}
+            value={formik.values.firstName}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
+          {formik.touched.firstName && formik.errors.firstName ? (
+            <p className="error">{formik.errors.firstName}</p>
+          ) : null}
         </div>
         <div className="inputWrapper">
           <label htmlFor="signUpLastName" className="authLabel">
-            Email
+            Last Name
           </label>
           <input
             autoComplete="off"
@@ -55,9 +75,13 @@ function SignUp() {
             type="text"
             placeholder="Last Name"
             name="lastName"
-            value={signUpForm.lastName}
-            onChange={onChangeHandler}
+            value={formik.values.lastName}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
+          {formik.touched.lastName && formik.errors.lastName ? (
+            <p className="error">{formik.errors.lastName}</p>
+          ) : null}
         </div>
         <div className="inputWrapper">
           <label htmlFor="signUpEmail" className="authLabel">
@@ -70,9 +94,13 @@ function SignUp() {
             type="email"
             placeholder="Email"
             name="email"
-            value={signUpForm.email}
-            onChange={onChangeHandler}
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
+          {formik.touched.email && formik.errors.email ? (
+            <p className="error">{formik.errors.email}</p>
+          ) : null}
         </div>
         <div className="inputWrapper">
           <label htmlFor="signUpPassword" className="authLabel">
@@ -85,13 +113,17 @@ function SignUp() {
             type={`${showPassword ? "text" : "password"}`}
             placeholder="Password"
             name="password"
-            value={signUpForm.password}
-            onChange={onChangeHandler}
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
           <EyesIcon
             onClick={() => setShowPassword(!showPassword)}
             className="authInput__icon"
           />
+          {formik.touched.password && formik.errors.password ? (
+            <p className="error">{formik.errors.password}</p>
+          ) : null}
         </div>
         <p className="formBreaker">OR</p>
         <CustomButton

@@ -12,8 +12,10 @@
 
   display: grid;
   grid-template-columns: 4.5rem repeat(12, 1fr) 4.5rem;
-  grid-template-rows: 6rem max-content 3.5rem max-content 3.5rem max-content 16.1875rem;
-  column-gap: 1.6vw;
+  // grid-template-rows: 6rem max-content 3.5rem max-content 3.5rem max-content 16.1875rem;
+  grid-template-rows: 6rem max-content 3.5rem max-content 3.5rem max-content 6.75rem;
+  // column-gap: 1.6vw;
+  column-gap: 1.5rem;
 
   height: 100vh;
   overflow-y: scroll;
@@ -29,7 +31,7 @@
     justify-self: center;
   }
   &__form {
-    grid-column: 4/12;
+    grid-column: 5/11;
     grid-row: 4/5;
     display: flex;
     flex-direction: column;
@@ -44,30 +46,57 @@
 
   &__switch {
     color: var(--colorNeutralWhite);
-    grid-row: 6/7;
+    grid-row: 5/6;
     grid-column: 4/12;
     justify-self: center;
-    @include boldCopy4Bold;
-
-    a:hover {
-      text-decoration: underline;
+    align-self: flex-end;
+    @include boldCopy3Regular;
+    
+    a{
+      @include boldCopy4Bold;
+      
+      &:hover {
+        text-decoration: underline;
+      }
     }
+
   }
 }
-.splash{
-    grid-column: 1/-1;
-    grid-row: 1/-1;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    // justify-content: center;
-    align-items: center;
-    background-color: var(--colorBlue1);
+.splash {
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--colorBlue1);
+  background-image: url(../../../images/SplashScreenBg.svg);
+  background-size: cover;
+  background-position: center;
 
-    // svg{
-    //     width: fit-content;
-    //     height: fit-content;
-    // }
+  .loader {
+    position: relative;
+    width: 25rem;
+    height: 360px;
+  }
+  .loader:after {
+    content: "";
+    /* width: 40px; */
+    height: 5px;
+    background: #a9c3ee;
+
+    position: absolute;
+    animation: loader 2s;
+    -webkit-animation: loader 2s;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    transition-timing-function: linear;
+    -webkit-transition-timing-function: linear;
+    bottom: 0px;
+
+    margin-left: 0;
+  }
 }
 
 .onboarding {
@@ -107,4 +136,9 @@
     height: 100vh;
     background-size: cover;
   }
+}
+
+.error{
+  font-size: .5rem;
+  color: red;
 }

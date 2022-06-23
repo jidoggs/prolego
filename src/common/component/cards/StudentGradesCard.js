@@ -6,19 +6,45 @@ function StudentGradesCard() {
   const mockRes = [
     {
       name: "Daniel Regna",
-      grade: "25",
+      age: "25",
+      sex: "M",
+      status: "Graduate",
     },
     {
       name: "Grace Obasi",
-      grade: "35",
+      age: "35",
+      sex: "M",
+      status: "Graduate",
     },
     {
       name: "Ose Prudence",
-      grade: "45",
+      age: "45",
+      sex: "M",
+      status: "Graduate",
     },
     {
       name: "Johnson Dotun",
-      grade: "50",
+      age: "50",
+      sex: "M",
+      status: "Graduate",
+    },
+    {
+      name: "Johnson Dotun",
+      age: "50",
+      sex: "M",
+      status: "Graduate",
+    },
+    {
+      name: "Johnson Dotun",
+      age: "50",
+      sex: "M",
+      status: "Graduate",
+    },
+    {
+      name: "Johnson Dotun",
+      age: "50",
+      sex: "M",
+      status: "Graduate",
     },
   ];
 
@@ -26,22 +52,23 @@ function StudentGradesCard() {
     <section className="dashboard__cards allStudent">
       <div className="title__container">
         <h3 className="title__container-title">Students</h3>
-        <Link to={"/admin/my_student"}>View All</Link>
         <div className="sortResult">
           Sort by:
-          <select defaultValue={"grade: low to high"}>
-            <option>grade: low to high</option>
+          <select defaultValue={"Graduate"}>
+            <option>Graduate</option>
             <option>grade: high</option>
             <option>grade: low </option>
           </select>
         </div>
       </div>
       <div className="allStudent__wrapper">
-        {mockRes.map((stu) => (
+        {mockRes.map((stu, id) => (
           <AllStudentStudentCard
-            key={stu.name}
+            key={id}
             studentName={stu.name}
-            studentGrade={stu.grade}
+            studentAge={stu.age}
+            studentSex={stu.sex}
+            studentStatus={stu.status}
           />
         ))}
       </div>

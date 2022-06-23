@@ -8,7 +8,9 @@
   }
   &__header {
     padding: 1.6875rem 4.5rem 0.75rem 1.5rem;
-    border-bottom: 1px solid #00000033;
+    // border-bottom: 1px solid #00000033;
+    box-shadow: 0px 2px 16px 0px #00000033;
+
     display: flex;
     justify-content: flex-end;
 
@@ -25,9 +27,10 @@
     }
   }
   &__cardsContainer {
-    background-color: rgba(170, 241, 29, 0.312);
-    padding-left: 1.5rem;
-    padding-right: 4.5rem;
+    background-color: var(--colorNeutralGrey3);
+    padding: 3rem 4.5rem 3rem 1.5rem;
+    height: calc(100vh - 6rem);
+    overflow-y: scroll;
     display: flex;
     flex-direction: column;
     row-gap: 3rem;
@@ -35,9 +38,17 @@
     &_subContainer {
       display: flex;
       column-gap: 1.5rem;
-      .classCards{
-          flex: 1;
+      .classCards {
+        flex: 1;
         //   width: 100%;
+      }
+      .academicCards {
+        flex: 1;
+        background-color: var(--colorNeutralWhite);
+        // padding: 27px 35px;
+        padding: 1.6875rem;
+        padding: 2.5rem 2rem 2.5rem 2.25rem;
+        border-radius: 0.75rem;
       }
     }
   }
@@ -48,16 +59,13 @@
     flex-direction: column;
     row-gap: 1.5rem;
   }
-
-
-
 }
 .class {
   display: flex;
   column-gap: 1.5rem;
   &__card {
     flex: 1;
-    padding: .5rem 1rem 0.75rem 1rem;
+    padding: 0.5rem 1rem 0.75rem 1rem;
     border-radius: 0.75rem;
     background-color: antiquewhite;
     display: flex;
@@ -87,19 +95,20 @@
     @include boldCopy3Bold;
     color: var(--colorNeutralBlack);
   }
-  a {
-    grid-column: 3/4;
-    color: var(--colorBlue1);
-  }
+  // a {
+  //   grid-column: 3/4;
+  //   color: var(--colorBlue1);
+  // }
   .sortResult {
-    grid-column: 1/-1;
+    grid-column: 3/4;
+    justify-self: flex-end;
     display: flex;
     align-items: center;
-    column-gap: 1.125rem;
+    column-gap: 0.25rem;
 
     select {
       border: none;
-      padding-right: 2.6875rem;
+      // padding-right: 2.6875rem;
       @include boldCopy5Regular;
       color: #00000080;
 
@@ -111,8 +120,9 @@
 }
 
 .allStudent {
+  flex: 1;
   background-color: var(--colorNeutralWhite);
-  padding: 2.25rem;
+  padding: 2.5rem 2.25rem;
   padding-top: 1.6875rem;
   border-radius: 0.75rem;
 
@@ -125,35 +135,38 @@
 
 .student__card {
   display: grid;
-  grid-template-columns: [imgS]max-content[imgE] 1.25rem [titleS]110px[titleE] 5rem [gradeS]max-content[gradeE] 2.25rem [btnS] max-content [btnE];
+  grid-template-columns: [titleS]7.625rem [titleE] 2rem [sexS]max-content[sexE] 4rem [ageS] max-content [ageE] 3rem [statusS] max-content [statusE];
   color: var(--colorNeutralBlack);
+  justify-content: space-between;
   align-items: center;
-
-  &--img {
-    width: 2.8125rem;
-    height: 2.8125rem;
-    border: 1px solid var(--colorBlue1);
-    background-color: purple;
-    border-radius: 50%;
-    grid-column: imgS/imgE;
-  }
+  @include boldCopy4Regular;
 
   &--title {
-    @include boldCopy4Regular;
     grid-column: titleS/titleE;
   }
 
-  &--grade {
-    @include boldCopy3Bold;
-    grid-column: gradeS/gradeE;
+  &--sex {
+    grid-column: sexS/sexE;
   }
 
-  &--btn {
-    border: none;
-    padding: 6px .5rem;
-    grid-column: btnS/btnE;
-    background-color: rgba($color: #dc3a3f, $alpha: 0.1);
+  &--age {
+    grid-column: ageS/ageE;
+  }
+
+  &--status {
+    grid-column: statusS/statusE;
+    color: var(--colorSuccess);
+  }
+}
+
+.attendancedb {
+  flex: 1;
+  padding: 1.75rem;
+  border-radius: 0.75rem;
+  background-color: var(--colorNeutralWhite);
+
+  &__head {
     display: flex;
-    justify-self: flex-end;
+    justify-content: space-between;
   }
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CustomButton from "../../common/component/CustomButton";
+import CustomButton from "../../common/component/CustomButton/CustomButton";
 
 function ResetPassword() {
   const initialState = {
@@ -70,7 +70,7 @@ function ResetPassword() {
             className="authInput"
             id="confirmPassword"
             type="password"
-            placeholder="Enter code"
+            placeholder="Retype new password"
             name="confirmPassword"
             value={resetPasswordForm.confirmPassword}
             onChange={onChangeHandler}

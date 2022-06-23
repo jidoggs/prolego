@@ -1,9 +1,16 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
+import { fetchUserToken } from "../../service/storage";
 import Header from "./Header";
 import SideNav from "./SideNav";
 
 function AdminLayout() {
+  const token = fetchUserToken();
+
+  if (!token) {
+    return <Navigate to={"/auth/login"} />;
+  }
+
   return (
     <div className="adminShell">
       <SideNav />

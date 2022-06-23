@@ -1,0 +1,62 @@
+.myStudent {
+  &,
+  &_selected {
+    padding: 0 1.5rem;
+    background-color: var(--colorNeutralGrey3);
+    // display: flex;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    column-gap: 1.5rem;
+
+    .myStudentTable {
+      overflow-y: auto;
+      height: calc(100vh - 6rem);
+      -ms-overflow-style: none; /* Internet Explorer 10+ */
+      scrollbar-width: none; /* Firefox */
+      &::-webkit-scrollbar {
+        display: none; /* Safari and Chrome */
+      }
+
+      thead {
+        th {
+          position: sticky;
+          top: 0;
+          background-color: var(--colorNeutralGrey3);
+        }
+      }
+    }
+  }
+
+  // height: max-content;
+  // overflow-y: scroll;
+
+  &Table {
+    grid-column: 1/-1;
+  }
+  // .table__display{
+
+  // }
+
+  &_selected {
+    .myStudentTable {
+      grid-column: 1/8;
+
+      tbody{
+        tr{
+            td:first-child{
+                padding: 0.5rem 0 0.5rem 1.375rem;
+            }
+            &:nth-child(2n) {
+                // background-color: var(--colorNeutralGrey3);
+                td:first-child {
+                  padding: 1.25rem 0 1.25rem 1.375rem;
+                }
+              }
+        }
+      }
+    }
+    .selectedStudent {
+      grid-column: 8/-1;
+    }
+  }
+}

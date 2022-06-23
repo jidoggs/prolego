@@ -1,0 +1,54 @@
+.selectedStudent{
+    // width: 20.625rem;
+    // height: 100vh;
+    padding: 11px;
+    padding-top: 109px;
+    // margin-left: 4rem;
+    background-color: var(--colorBlue4);
+    // display: grid;
+    // place-content: center;
+
+    &__head{
+        padding: 1rem;
+        border-bottom: 1px solid #00000033;
+        @include flexColumn;
+        align-items: center;
+        row-gap: 1.25rem;
+
+        &-img{
+            width: 6.25rem;
+            height: 6.25rem;
+            background-color: red;
+            border-radius: 50%;
+        }
+        &-info{
+            @include flexColumn;
+            align-items: center;
+            row-gap: 0.25rem;
+
+            h3{
+                @include boldCopy4Regular;
+            }
+            p {
+                
+                @include boldCopy4Bold;
+            }
+        }
+    }
+    &__body{
+        padding: 1rem 1.3125rem;
+        @include flexColumn;
+        row-gap: 1.25rem;
+        align-content: space-between;
+
+        &-card{
+            @include flexCenterSpaceBtw;
+            @include boldCopy3Bold;
+            
+            span{
+                @include boldCopy3Regular;
+                
+            }
+        }
+    }
+}

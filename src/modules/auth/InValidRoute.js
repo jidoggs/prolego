@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import CustomButton from '../../common/component/CustomButton'
+import CustomButton from '../../common/component/CustomButton/CustomButton'
 
 function InValidRoute() {
     const navigate = useNavigate()
