@@ -1,16 +1,11 @@
 .btn {
-  
-
   &,
   &Outline {
     padding: 1.25rem;
     border-radius: 1.25rem;
     @include boldCopy4Regular;
-    // width: 100%;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flexcenter;
 
     &:disabled {
       cursor: not-allowed;
@@ -32,7 +27,7 @@
     }
     &:active {
       border: 1px solid #00000040;
-      box-shadow:0.3125rem 0.3125rem 1.25rem 0px #00000040;
+      box-shadow: 0.3125rem 0.3125rem 1.25rem 0px #00000040;
       transition: border 0.8s ease;
     }
   }
@@ -49,7 +44,7 @@
     &:not(:disabled) {
       &:active,
       &:hover {
-        box-shadow:0.3125rem 0.3125rem 0.9375rem 0px #00000040;
+        box-shadow: 0.3125rem 0.3125rem 0.9375rem 0px #00000040;
       }
       &:active {
         border-color: var(--colorBlueMain);

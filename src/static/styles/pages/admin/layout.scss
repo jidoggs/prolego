@@ -5,17 +5,15 @@
   display: flex;
   height: 100vh;
   overflow: hidden;
-  // display: grid;
-  // grid-template-columns: max-content max-content;
-  // overflow: hidden;
   background-color: var(--colorNeutralGrey3);
   &__header {
-    // grid-column: 1/2;
     background-color: var(--colorBlue1);
-    display: grid;
-    grid-template-columns: 1.5rem [logoS] 3rem [navS] 1fr[logoE] 3.25rem;
-    // grid-template-rows: 3.5rem [logoStart]max-content[logoEnd] 1fr [navStart]max-content[navEnd] 1.77fr [logoutStart]max-content[logoutEnd] 2.27fr;
-    grid-template-rows: 3.5rem [logoStart]max-content[logoEnd] 3.5rem [navStart]max-content[navEnd] 1.77fr [logoutStart]max-content[logoutEnd] 2.27fr;
+    @include gridcolrow(
+      1.5rem [logoS] 3rem [navS] 1fr[logoE] 3.25rem,
+      3.5rem [logoStart]max-content[logoEnd] 3.5rem
+        [navStart]max-content[navEnd] 1.77fr [logoutStart]max-content[logoutEnd]
+        2.27fr
+    );
     place-content: center;
 
     &--logo {
@@ -28,8 +26,7 @@
       grid-column: navS/-1;
 
       &List {
-        display: flex;
-        flex-direction: column;
+        @include flexcolumn;
         row-gap: 2.25rem;
 
         &__itm {
@@ -41,8 +38,7 @@
 
           &,
           &-active {
-            display: flex;
-            align-items: center;
+            @include flexalign;
             column-gap: 1.25rem;
             padding: 0.5rem 0;
           }
@@ -59,12 +55,12 @@
               content: "";
               display: block;
               position: absolute;
-              width: .75rem;
+              width: 0.75rem;
               height: 2.5rem;
               inset: 0 0 0 auto;
-              background-color: #D74E96;
-              border-top-left-radius: .75rem;
-              border-bottom-left-radius: .75rem;
+              background-color: #d74e96;
+              border-top-left-radius: 0.75rem;
+              border-bottom-left-radius: 0.75rem;
             }
           }
         }
@@ -77,8 +73,7 @@
       border: none;
       background-color: transparent;
       @include boldCopy3Regular;
-      display: flex;
-      align-items: center;
+      @include flexalign;
       column-gap: 1.25rem;
       color: var(--colorBlue4);
       padding: 0.5rem 0;
@@ -89,20 +84,19 @@
     grid-column: 2/3;
     flex: 1;
     position: relative;
-
-    &--header{
+    @include gridcolumn(4.5rem 1fr 4.5rem);
+    
+    &--header {
       position: absolute;
       inset: 0 0 auto 0;
+      grid-column: 1/-1;
+      @include gridcolumn(4.5rem 1fr 4.5rem);
     }
-    &--content{
+    &--content {
       margin-top: 6rem;
       background-color: var(--colorNeutralGrey3);
-      // height: 100vh;
-      // overflow: scroll;
+      grid-column: 1/-1;
+      @include gridcolumn(4.5rem 1fr 4.5rem);
     }
-  }
-
-  canvas{
-    // width: auto;
   }
 }

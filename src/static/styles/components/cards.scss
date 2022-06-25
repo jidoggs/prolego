@@ -1,6 +1,4 @@
 .selectedStudent{
-    // width: 20.625rem;
-    // height: 100vh;
     padding: 11px;
     padding-top: 109px;
     // margin-left: 4rem;
@@ -11,7 +9,7 @@
     &__head{
         padding: 1rem;
         border-bottom: 1px solid #00000033;
-        @include flexColumn;
+        @include flexcolumn;
         align-items: center;
         row-gap: 1.25rem;
 
@@ -22,7 +20,7 @@
             border-radius: 50%;
         }
         &-info{
-            @include flexColumn;
+            @include flexcolumn;
             align-items: center;
             row-gap: 0.25rem;
 
@@ -37,12 +35,12 @@
     }
     &__body{
         padding: 1rem 1.3125rem;
-        @include flexColumn;
+        @include flexcolumn;
         row-gap: 1.25rem;
         align-content: space-between;
 
         &-card{
-            @include flexCenterSpaceBtw;
+            @include flexspacebtwcenter;
             @include boldCopy3Bold;
             
             span{

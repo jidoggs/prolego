@@ -1,9 +1,40 @@
-@mixin flexColumn {
+@mixin flexspacebtwcenter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flexalign {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flexcolumn {
   display: flex;
   flex-direction: column;
 }
-@mixin flexCenterSpaceBtw {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+@mixin flexbtw {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin flexcenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin gridcolumn($col) {
+  display: grid;
+  grid-template-columns: $col;
+}
+@mixin gridrows($row) {
+  display: grid;
+  grid-template-rows: $row;
+}
+@mixin gridcolrow($col, $row) {
+  display: grid;
+  grid-template-columns: $col;
+  grid-template-rows: $row;
 }

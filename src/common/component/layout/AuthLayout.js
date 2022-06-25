@@ -1,5 +1,5 @@
-import React, { useEffect,  useState } from "react";
-import { Navigate, Outlet, useLocation, useNavigate } from "react-router-dom";
+import React, {   useState } from "react";
+import { Navigate, Outlet, useLocation,  } from "react-router-dom";
 import Onboarding from "../../../modules/auth/onboard/Onboarding";
 import Splash from "../../../modules/auth/onboard/Splash";
 import { fetchUserToken } from "../../service/storage";
@@ -8,7 +8,7 @@ import Logo from "../customIcons/Logo";
 
 function AuthLayout() {
   const { pathname } = useLocation();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const userStatus = localStorage.getItem("newUser") ? false : true;
   const [newUser, setNewUser] = useState(userStatus);

@@ -1,5 +1,5 @@
 export const data = {
-  labels: ["January", "February", "March", "April", "May", "June", "July"],
+  labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September"],
 
   datasets: [
     {
@@ -10,7 +10,7 @@ export const data = {
       //stack: 1,
       hoverBackgroundColor: "rgba(128, 167, 214, 0.4)",
       hoverBorderColor: "rgba(28, 45, 64, 1)",
-      data: [65, 59, 80, 81, 56, 55, 40],
+      data: [65, 59, 80, 81, 56, 55, 40,99,63],
     },
 
     {
@@ -21,7 +21,7 @@ export const data = {
       //stack: 1,
       hoverBackgroundColor: "rgba(28, 45, 64, 0.4)",
       hoverBorderColor: "rgba(128, 167, 214, 1)",
-      data: [45, 79, 50, 41, 16, 85, 20],
+      data: [45, 79, 50, 41, 16, 85, 20,40,21],
     },
   ],
 };
