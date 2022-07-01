@@ -8,31 +8,39 @@
       padding-top: 2.375rem;
       padding-bottom: 0.8125rem;
       @include boldCopy4Bold;
-      padding: 2.375rem 1.375rem 0.8125rem 1.375rem;
+      padding: 2.375rem 0.75rem 0.8125rem 0.75rem;
     }
   }
+
+  // th,
+  // td{
+  //   text-align: center;
+  // }
 
   tbody {
     tr:nth-child(2n) {
       background-color: var(--colorNeutralGrey3);
       td {
-        padding: 1.25rem 1.375rem;
+        padding: 1.5rem 0.75rem 1.25rem 0.75rem;
       }
     }
     tr:nth-child(2n-1) {
       background-color: var(--colorNeutralWhite);
+      td{
+        padding: 1.25rem 0.75rem;
+      }
     }
     tr {
       cursor: pointer;
       td {
         @include boldCopy4Regular;
-        padding: 0.5rem 1.375rem;
+        // padding: 0.5rem 1.375rem;
 
-        &:first-child {
-          display: flex;
-          align-items: center;
-          column-gap: 1.5rem;
-        }
+        // &:first-child {
+        //   display: flex;
+        //   align-items: center;
+        //   column-gap: 1.5rem;
+        // }
       }
       &:hover{
         background-color: var(--colorBlue4);

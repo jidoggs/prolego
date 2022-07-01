@@ -1,4 +1,5 @@
 .dashboard {
+  // app header component
   &__avatar {
     background-color: red;
     width: 3.533333333333333rem;
@@ -24,6 +25,7 @@
       }
     }
   }
+  // actual dashboard
   &__cardsContainer {
     grid-column: 2/-2;
     background-color: var(--colorNeutralGrey3);

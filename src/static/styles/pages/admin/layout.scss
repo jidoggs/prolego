@@ -85,7 +85,7 @@
     flex: 1;
     position: relative;
     @include gridcolumn(4.5rem 1fr 4.5rem);
-    
+
     &--header {
       position: absolute;
       inset: 0 0 auto 0;
@@ -98,5 +98,41 @@
       grid-column: 1/-1;
       @include gridcolumn(4.5rem 1fr 4.5rem);
     }
+  }
+}
+
+.invalidroute {
+  @include flexcenter;
+  height: 100vh;
+
+  &__text {
+    @include flexcolumn;
+    width: 426px;
+    align-items: center;
+    row-gap: 1rem;
+
+    &--headline {
+      font-size: 10rem;
+      font-weight: 600;
+      line-height: 10rem;
+      text-shadow: 0 10px 15px #00000040;
+      color: var(--colorBlue1);
+    }
+    &--subheadline {
+      @include subHeaderBold;
+    }
+    &--body{
+      text-align: center;
+      @include boldCopy4Regular;
+    }
+
+  }
+  &__image {
+    width: 808px;
+    height: 552px;
+    // width: 400px;
+    // height: 275px;
+    background-image: url(../../../images/invalid.svg);
+    background-size: contain;
   }
 }

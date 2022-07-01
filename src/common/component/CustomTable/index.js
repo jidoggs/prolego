@@ -15,10 +15,10 @@ function Table({ headers, data, rowClick, clearClick }) {
       <tbody>
         {data?.map((row, idx) => {
           return (
-            <tr onClick={() => rowClick(row)} key={idx}>
+            <tr onClick={() => rowClick(row,idx)} key={idx}>
               {headers?.map((col, id) => (
                 <td key={id}>
-                  {col.key === "name" ? (
+                  {/* {col.key === "name" ? (
                     <>
                       <div
                         style={{ backgroundImage: `url(${row?.img})` }}
@@ -26,9 +26,9 @@ function Table({ headers, data, rowClick, clearClick }) {
                       ></div>{" "}
                       <span>{row[col.key]}</span>{" "}
                     </>
-                  ) : (
-                    row[col.key]
-                  )}
+                  ) : ( */}
+                    {row[col.key]}
+                  {/* )} */}
                 </td>
               ))}
             </tr>

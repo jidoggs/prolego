@@ -1,12 +1,62 @@
 .myStudent {
   &,
   &_selected {
-    padding: 0 1.5rem;
-    background-color: var(--colorNeutralGrey3);
+    // padding: 0 1.5rem;
+    // background-color: var(--colorNeutralGrey3);
     // display: flex;
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    column-gap: 1.5rem;
+    // display: grid;
+    // grid-template-columns: repeat(10, 1fr);
+    // column-gap: 1.5rem;
+
+    .table__controls {
+      @include gridcolumn(max-content 1fr 1.78fr 1fr max-content);
+      row-gap: 14px;
+      padding-top: 62px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba($color: #000000, $alpha: 0.2);
+      align-items: center;
+
+      h1 {
+        grid-column: 1/2;
+        @include subHeaderBold;
+      }
+      form {
+        grid-column: 3/4;
+        label {
+          display: block;
+          position: relative;
+
+          button {
+            all: unset;
+            position: absolute;
+            inset: 1rem auto 1rem 1.5rem;
+            cursor: pointer;
+          }
+        }
+
+        input {
+          width: 100%;
+          padding: 18px 24px 18px 64px;
+          border: 1px solid var(--colorBlue3);
+          border-radius: 0.75rem;
+          background-color: var(--colorNeutralWhite);
+        }
+      }
+      .filterbox {
+        grid-column: 5/6;
+        padding: 14px 24px 14px 20px;
+        @include flexalign;
+        column-gap: 1rem;
+        background-color: var(--colorBlue1);
+        color: var(--colorNeutralWhite);
+        @include boldCopy4Regular;
+        cursor: pointer;
+      }
+      select {
+        all: unset;
+        grid-column: 1/2;
+      }
+    }
 
     .myStudentTable {
       overflow-y: auto;
@@ -31,7 +81,7 @@
   // overflow-y: scroll;
 
   &Table {
-    grid-column: 1/-1;
+    grid-column: 2/-2;
   }
   // .table__display{
 
@@ -41,17 +91,17 @@
     .myStudentTable {
       grid-column: 1/8;
 
-      tbody{
-        tr{
-            td:first-child{
-                padding: 0.5rem 0 0.5rem 1.375rem;
+      tbody {
+        tr {
+          td:first-child {
+            padding: 1.25rem 0 1.25rem 0.75rem;
+          }
+          &:nth-child(2n) {
+            // background-color: var(--colorNeutralGrey3);
+            td:first-child {
+              padding: 1.5rem 0 1.25rem 1.375rem;
             }
-            &:nth-child(2n) {
-                // background-color: var(--colorNeutralGrey3);
-                td:first-child {
-                  padding: 1.25rem 0 1.25rem 1.375rem;
-                }
-              }
+          }
         }
       }
     }
